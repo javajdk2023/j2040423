@@ -11,7 +11,7 @@ import java.util.Properties;
 import br.com.fuctura.entidade.Aluno;
 
 public class Aplicacao {
-	
+
 	public static void main(String[] args) throws SQLException {
 		String url = "jdbc:postgresql://localhost:5432/fuctura";
 		Properties props = new Properties();
@@ -43,15 +43,15 @@ public class Aplicacao {
 		// excluirAluno(conexao, aluno);
 
 		System.out.println("Inserido com sucesso!");
-		
+
 		ArrayList<Aluno> lista = consultarAluno(conexao, aluno);
-		
-		for(Aluno a : lista) {
+
+		for (Aluno a : lista) {
 			System.out.println("email: " + a.getEmail());
 			System.out.println("idade: " + a.getIdade());
 			System.out.println("nome " + a.getNome());
 		}
-		
+
 	}
 
 	static void inserirAluno(Connection conexao, Aluno aluno) throws SQLException {
@@ -92,22 +92,21 @@ public class Aplicacao {
 		ResultSet resultadoDaConsulta = pstm.executeQuery();
 
 		ArrayList<Aluno> lista = new ArrayList<>();
-							   
-		while(resultadoDaConsulta.next()) {
+
+		while (resultadoDaConsulta.next()) {
 			String nome = resultadoDaConsulta.getString("nome");
 			int idade = resultadoDaConsulta.getInt("idade");
 			String email = resultadoDaConsulta.getString("email");
-			
+
 			Aluno a = new Aluno();
 			a.setNome(nome);
 			a.setIdade(idade);
 			a.setEmail(email);
-			
+
 			lista.add(a);
 		}
-		
-		return lista;
-		
-	}
 
+		return lista;
+
+	}
 }
