@@ -36,3 +36,11 @@ while (resultadoDaConsulta.next()) {
   System.out.println("nome " + nome);
 }
 ```
+
+### Fechar Conexão
+
+Além disso, é importante fechar o ResultSet e o Statement após o uso, para liberar recursos do sistema. O cursor mantém uma conexão aberta com o banco de dados enquanto estiver navegando pelo conjunto de resultados. Portanto, é recomendado fechar o ResultSet e o Statement assim que não forem mais necessários, para liberar recursos do sistema.
+
+```java
+resultadoDaConsulta.close();
+```
