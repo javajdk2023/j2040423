@@ -105,7 +105,10 @@ public class Aplicacao {
 
 			lista.add(a);
 		}
-
+		
+		resultadoDaConsulta.close();
+		
+		
 		return lista;
 
 	}

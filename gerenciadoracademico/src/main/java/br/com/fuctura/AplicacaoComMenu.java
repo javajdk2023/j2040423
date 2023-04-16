@@ -2,7 +2,6 @@ package br.com.fuctura;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -46,7 +45,7 @@ public class AplicacaoComMenu {
 					aluno.setEmail(email);
 					aluno.setIdade(idade);
 
-					inserirAluno(conexao, aluno);
+					Aplicacao.inserirAluno(conexao, aluno);
 
 					System.out.println("Aluno inserido com sucesso!");
 
@@ -79,19 +78,4 @@ public class AplicacaoComMenu {
 		}
 
 	}
-
-	static void inserirAluno(Connection conexao, Aluno aluno) throws SQLException {
-		String sql = "INSERT INTO aluno VALUES (?, ?, ?)";
-
-		PreparedStatement pstm = conexao.prepareStatement(sql);
-
-		// (indice, valor)
-		pstm.setString(1, aluno.getNome());
-		pstm.setInt(2, aluno.getIdade());
-		pstm.setString(3, aluno.getEmail());
-
-		// executar
-		pstm.execute();
-	}
-
 }
