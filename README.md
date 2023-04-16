@@ -11,7 +11,7 @@ Nosso primeiro cliente trouxe um exemplo (imagem abaixo) de uma ficha de cadastr
 
 # Requisitos
 
-Desejamos criar uma aplicação utilizando o console Java e que permita efetuar 4 operações:
+Desejamos criar uma aplicação utilizando o console Java que permita efetuar 4 operações:
 
 - Cadastrar Aluno
 - Consultar Alunos cadastrados por CPF
