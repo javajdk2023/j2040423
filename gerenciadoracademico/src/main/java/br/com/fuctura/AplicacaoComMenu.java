@@ -7,21 +7,27 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 
+import br.com.fuctura.config.Conexao;
+import br.com.fuctura.dao.AlunoDAOArquivoTexto;
+import br.com.fuctura.dao.AlunoDAOImpl;
+import br.com.fuctura.dao.IAlunoDAO;
 import br.com.fuctura.entidade.Aluno;
 
 public class AplicacaoComMenu {
+	
 	public static void main(String[] args) throws SQLException {
-		String url = "jdbc:postgresql://localhost:5432/fuctura";
-		Properties props = new Properties();
-		props.setProperty("user", "fuctura");
-		props.setProperty("password", "123");
-
-		Connection conexao = DriverManager.getConnection(url, props);
-
+		Conexao conexao = new Conexao();
+		Connection connection = conexao.getMysql(); 
+		
+		IAlunoDAO dao = new AlunoDAOImpl(connection);
+		
+		var aluno = new Aluno();
+		
 		try (Scanner scanner = new Scanner(System.in)) {
 			int choice;
 
 			do {
+				
 				System.out.println("Escolha uma opção:");
 				System.out.println("1 - Cadastrar Aluno");
 				System.out.println("2 - Listar todos os alunos");
@@ -39,13 +45,12 @@ public class AplicacaoComMenu {
 					var email = scanner.next();
 					System.out.println("Digite o email do aluno: ");
 					var idade = scanner.nextInt();
-
-					var aluno = new Aluno();
+					
 					aluno.setNome(nome);
 					aluno.setEmail(email);
 					aluno.setIdade(idade);
 
-					Aplicacao.inserirAluno(conexao, aluno);
+					dao.inserir(aluno);
 
 					System.out.println("Aluno inserido com sucesso!");
 
@@ -58,7 +63,7 @@ public class AplicacaoComMenu {
 					aluno = new Aluno();
 					aluno.setNome(nome);
 					
-					ArrayList<Aluno> lista = Aplicacao.consultarAluno(conexao, aluno);
+					ArrayList<Aluno> lista = dao.consultar(aluno);
 
 					for (Aluno a : lista) {
 						System.out.println("email: " + a.getEmail());
