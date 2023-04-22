@@ -18,10 +18,9 @@ public class Aplicacao {
 		a.setEmail("maria@gmail.com");
 		
 
-		
-		DAO<Aluno> daoAluno = new DAO<>(Aluno.class);
-		
-		daoAluno.abrir().create(a).fechar();
+		em.getTransaction().begin();
+		em.persist(a);
+		em.getTransaction().commit();
 		
 		
 		//emf.close();
