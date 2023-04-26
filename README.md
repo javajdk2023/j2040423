@@ -104,4 +104,19 @@ resultadoDaConsulta.close();
 </persistence>
 ```
 
+# Aula 7
+
+
+O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação que deve ser tomada em relação ao banco de dados ao iniciar o aplicativo. Existem várias opções disponíveis para essa propriedade, cada uma com um comportamento diferente. Abaixo estão as opções mais comuns:
+
+**validate**: Essa opção é usada para validar o esquema do banco de dados com as entidades mapeadas pelo Hibernate. Não faz alterações no banco de dados.
+
+**update**: Essa opção atualiza o esquema do banco de dados de acordo com as entidades mapeadas pelo Hibernate. Isso significa que o Hibernate adicionará novas tabelas e colunas, mas não removerá tabelas ou colunas antigas.
+
+**create**: Essa opção cria o esquema do banco de dados com base nas entidades mapeadas pelo Hibernate. Isso significa que o Hibernate criará todas as tabelas e colunas necessárias, mas se houver tabelas ou colunas existentes com os mesmos nomes, elas serão descartadas.
+
+**create-drop**: Essa opção cria o esquema do banco de dados com base nas entidades mapeadas pelo Hibernate e, quando a aplicação é encerrada, ele remove todas as tabelas e colunas do banco de dados. É útil para desenvolvimento e testes, mas nunca deve ser usado em produção.
+
+**none**: Essa opção não faz nada em relação ao esquema do banco de dados e assume que o esquema já existe e está correto.
+
 
