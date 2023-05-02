@@ -123,7 +123,7 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 ## Chave Primária
 
-Em JPA, a anotação @GeneratedValue é usada para especificar como o valor de uma coluna de chave primária é gerado. A estratégia de geração é definida pela anotação @GeneratedValue em conjunto com a anotação @Id nas entidades JPA.
+Em JPA, a anotação **@GeneratedValue** é usada para especificar como o valor de uma coluna de chave primária é gerado. A estratégia de geração é definida pela anotação **@GeneratedValue** em conjunto com a anotação **@Id** nas entidades JPA.
 
 Existem quatro estratégias de geração de valor de chave primária disponíveis na especificação JPA:
 
