@@ -119,4 +119,20 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 **none**: Essa opção não faz nada em relação ao esquema do banco de dados e assume que o esquema já existe e está correto.
 
+# Aula 8
 
+JPA (Java Persistence API) é uma API que fornece uma interface comum para trabalhar com dados persistentes em aplicações Java. Ao utilizar o JPA, é possível definir diferentes tipos de relacionamento entre as entidades do modelo de dados, permitindo que os dados sejam armazenados e consultados de forma mais eficiente e organizada.
+
+Existem vários tipos de relacionamentos que podem ser definidos entre entidades no JPA. Alguns dos mais comuns são:
+
+Relacionamento *Um-para-Um*:
+Neste tipo de relacionamento, cada instância de uma entidade está relacionada a apenas uma instância de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @OneToOne.
+
+Relacionamento *Um-para-Muitos*:
+Neste tipo de relacionamento, cada instância de uma entidade está relacionada a várias instâncias de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @OneToMany.
+
+Relacionamento *Muitos-para-Um*:
+Neste tipo de relacionamento, várias instâncias de uma entidade estão relacionadas a uma única instância de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @ManyToOne.
+
+Relacionamento *Muitos-para-Muitos*:
+Neste tipo de relacionamento, várias instâncias de uma entidade estão relacionadas a várias instâncias de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @ManyToMany.
