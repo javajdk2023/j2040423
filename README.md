@@ -121,18 +121,37 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 # Aula 8
 
+## Chave Primária
+
+Em JPA, a anotação @GeneratedValue é usada para especificar como o valor de uma coluna de chave primária é gerado. A estratégia de geração é definida pela anotação @GeneratedValue em conjunto com a anotação @Id nas entidades JPA.
+
+Existem quatro estratégias de geração de valor de chave primária disponíveis na especificação JPA:
+
+**GenerationType.IDENTITY**: essa estratégia assume que a coluna de chave primária é uma chave autoincrementável gerenciada pelo banco de dados. Ou seja, o valor da chave primária é gerado automaticamente pelo banco de dados. O JPA espera que o banco de dados informe o valor gerado após a inserção do registro.
+
+**GenerationType.SEQUENCE**: essa estratégia assume que a coluna de chave primária é gerenciada por uma sequência de banco de dados. O JPA solicita um novo valor da sequência do banco de dados e usa esse valor como a chave primária para a nova entidade.
+
+**GenerationType.TABLE**: essa estratégia utiliza uma tabela de valores de sequência no banco de dados para gerar o valor da chave primária. O JPA mantém uma tabela especial que armazena um valor de sequência para cada entidade. Quando uma nova entidade é persistida, o valor da chave primária é gerado a partir da tabela de valores de sequência.
+
+**GenerationType.AUTO**: essa estratégia de geração é a mais flexível, permitindo que o provedor JPA escolha a estratégia de geração mais adequada com base no banco de dados e no contexto em que a entidade está sendo persistida. Por padrão, o provedor JPA escolhe a estratégia GenerationType.IDENTITY ou GenerationType.SEQUENCE dependendo do banco de dados utilizado.
+
+
+## Relacionamentos
+
 JPA (Java Persistence API) é uma API que fornece uma interface comum para trabalhar com dados persistentes em aplicações Java. Ao utilizar o JPA, é possível definir diferentes tipos de relacionamento entre as entidades do modelo de dados, permitindo que os dados sejam armazenados e consultados de forma mais eficiente e organizada.
 
 Existem vários tipos de relacionamentos que podem ser definidos entre entidades no JPA. Alguns dos mais comuns são:
 
-Relacionamento *Um-para-Um*:
+Relacionamento **Um-para-Um**:
 Neste tipo de relacionamento, cada instância de uma entidade está relacionada a apenas uma instância de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @OneToOne.
 
-Relacionamento *Um-para-Muitos*:
+Relacionamento **Um-para-Muitos**:
 Neste tipo de relacionamento, cada instância de uma entidade está relacionada a várias instâncias de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @OneToMany.
 
-Relacionamento *Muitos-para-Um*:
+Relacionamento **Muitos-para-Um**:
 Neste tipo de relacionamento, várias instâncias de uma entidade estão relacionadas a uma única instância de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @ManyToOne.
 
-Relacionamento *Muitos-para-Muitos*:
+Relacionamento **Muitos-para-Muitos**:
 Neste tipo de relacionamento, várias instâncias de uma entidade estão relacionadas a várias instâncias de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @ManyToMany.
+
+
