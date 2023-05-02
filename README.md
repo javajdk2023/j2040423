@@ -123,6 +123,8 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 ## Chave Primária
 
+A chave primária é um conceito fundamental em bancos de dados relacionais. Ela é usada para identificar exclusivamente cada registro em uma tabela e permite que os dados sejam organizados e acessados de forma eficiente. A chave primária pode ser composta por um ou mais campos em uma tabela e é definida como um conjunto de restrições que garantem que os valores desses campos sejam únicos e não nulos. As chaves primárias são importantes porque permitem que as consultas sejam realizadas de forma eficiente em grandes conjuntos de dados e são frequentemente usadas para estabelecer relacionamentos entre tabelas.
+
 Em JPA, a anotação **@GeneratedValue** é usada para especificar como o valor de uma coluna de chave primária é gerado. A estratégia de geração é definida pela anotação **@GeneratedValue** em conjunto com a anotação **@Id** nas entidades JPA.
 
 Existem quatro estratégias de geração de valor de chave primária disponíveis na especificação JPA:
@@ -154,4 +156,16 @@ Neste tipo de relacionamento, várias instâncias de uma entidade estão relacio
 Relacionamento **Muitos-para-Muitos**:
 Neste tipo de relacionamento, várias instâncias de uma entidade estão relacionadas a várias instâncias de outra entidade. Para definir esse tipo de relacionamento no JPA, é necessário usar a anotação @ManyToMany.
 
+## Cascata
 
+Em JPA, cascata é um recurso que permite especificar que operações realizadas em uma entidade também sejam aplicadas automaticamente em outras entidades associadas a ela. Isso significa que, por exemplo, se uma entidade A está associada a uma entidade B e a cascata está configurada para a operação de persistência, quando a entidade A for persistida, a entidade B também será persistida automaticamente.
+
+Existem quatro tipos de cascata em JPA:
+
+**CascadeType.ALL**: aplica todas as operações de cascata, incluindo persistência, atualização, remoção e atualização em cascata.
+
+**CascadeType.PERSIST**: aplica a operação de persistência em cascata.
+
+**CascadeType.MERGE**: aplica a operação de atualização em cascata.
+
+**CascadeType.REMOVE**: aplica a operação de remoção em cascata.
