@@ -169,3 +169,11 @@ Existem quatro tipos de cascata em JPA:
 **CascadeType.MERGE**: aplica a operação de atualização em cascata.
 
 **CascadeType.REMOVE**: aplica a operação de remoção em cascata.
+
+## Relacionamento Bidirecional
+
+A anotação mappedBy é usada em associações bidirecionais entre entidades no JPA e serve para especificar o nome do atributo na entidade relacionada que é responsável por manter a associação.
+
+Quando se define um relacionamento bidirecional entre duas entidades, é necessário que uma das entidades seja a proprietária da relação (ou seja, ela é responsável por manter a chave estrangeira que faz referência à outra entidade). A outra entidade é considerada a entidade associada e não possui a chave estrangeira.
+
+Ao usar a anotação mappedBy, você está informando ao JPA que a entidade proprietária não é a atual, mas sim a entidade relacionada que possui o atributo especificado como parâmetro. Essa informação é usada pelo JPA para configurar corretamente a associação bidirecional entre as entidades.
