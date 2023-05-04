@@ -119,57 +119,9 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 **none**: Essa opção não faz nada em relação ao esquema do banco de dados e assume que o esquema já existe e está correto.
 
-<<<<<<< HEAD
-# Aula 8 
-=======
+
 # Aula 8
->>>>>>> branch 'aula8' of git@github.com:javajdk2023/j2040423.git
 
-<<<<<<< HEAD
-## Leitura de dados utilizando BufferedReader
-
-Como alternativa ao Scanner você pode utilizar a classe **BufferedReader** para fazer a leitura dos dados digitado no teclado como
-**string** e fazer o parser para o tipo de dados desejado (int, double, etc) com o Wrapper específico.
-
-```java
-public class AplicacaoLeituraDeDados {
-	public static void main(String[] args) throws IOException {
-	
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	
-		System.out.println("Digite um ou mais palavras :");
-		
-		String texto = reader.readLine();
-	
-		System.out.println("Texto digitado: " + texto);
-	
-		System.out.println("Digite um número inteiro: ");
-	
-		texto = reader.readLine();
-	
-		int textoComoInteiro = Integer.parseInt(texto);
-	
-		System.out.println("O número digitado foi: " + textoComoInteiro);
-	
-		System.out.println("Digite um número real: ");
-	
-		texto = reader.readLine();
-	
-		double textoComoReal = Double.parseDouble(texto);
-	
-		System.out.println("O número digitado foi: " + textoComoReal);
-		
-		System.out.println("Digite um boleano (true ou false): ");
-	
-		texto = reader.readLine();
-	
-		boolean textoComoBoleano = Boolean.parseBoolean(texto);
-	
-		System.out.println("O boleano digitado foi: " + textoComoBoleano);
-	}
-}
-```
-=======
 ## Chave Primária
 
 A chave primária é um conceito fundamental em bancos de dados relacionais. Ela é usada para identificar exclusivamente cada registro em uma tabela e permite que os dados sejam organizados e acessados de forma eficiente. A chave primária pode ser composta por um ou mais campos em uma tabela e é definida como um conjunto de restrições que garantem que os valores desses campos sejam únicos e não nulos. As chaves primárias são importantes porque permitem que as consultas sejam realizadas de forma eficiente em grandes conjuntos de dados e são frequentemente usadas para estabelecer relacionamentos entre tabelas.
@@ -226,4 +178,48 @@ A anotação mappedBy é usada em associações bidirecionais entre entidades no
 Quando se define um relacionamento bidirecional entre duas entidades, é necessário que uma das entidades seja a proprietária da relação (ou seja, ela é responsável por manter a chave estrangeira que faz referência à outra entidade). A outra entidade é considerada a entidade associada e não possui a chave estrangeira.
 
 Ao usar a anotação mappedBy, você está informando ao JPA que a entidade proprietária não é a atual, mas sim a entidade relacionada que possui o atributo especificado como parâmetro. Essa informação é usada pelo JPA para configurar corretamente a associação bidirecional entre as entidades.
->>>>>>> branch 'aula8' of git@github.com:javajdk2023/j2040423.git
+
+## Leitura de dados utilizando BufferedReader
+
+Como alternativa ao Scanner você pode utilizar a classe **BufferedReader** para fazer a leitura dos dados digitado no teclado como
+**string** e fazer o parser para o tipo de dados desejado (int, double, etc) com o Wrapper específico.
+
+```java
+public class AplicacaoLeituraDeDados {
+	public static void main(String[] args) throws IOException {
+	
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	
+		System.out.println("Digite um ou mais palavras :");
+		
+		String texto = reader.readLine();
+	
+		System.out.println("Texto digitado: " + texto);
+	
+		System.out.println("Digite um número inteiro: ");
+	
+		texto = reader.readLine();
+	
+		int textoComoInteiro = Integer.parseInt(texto);
+	
+		System.out.println("O número digitado foi: " + textoComoInteiro);
+	
+		System.out.println("Digite um número real: ");
+	
+		texto = reader.readLine();
+	
+		double textoComoReal = Double.parseDouble(texto);
+	
+		System.out.println("O número digitado foi: " + textoComoReal);
+		
+		System.out.println("Digite um boleano (true ou false): ");
+	
+		texto = reader.readLine();
+	
+		boolean textoComoBoleano = Boolean.parseBoolean(texto);
+	
+		System.out.println("O boleano digitado foi: " + textoComoBoleano);
+	}
+}
+```
+
