@@ -119,4 +119,48 @@ O hibernate.hbm2ddl.auto é uma propriedade do Hibernate que especifica a ação
 
 **none**: Essa opção não faz nada em relação ao esquema do banco de dados e assume que o esquema já existe e está correto.
 
+# Aula 8 
 
+## Leitura de dados utilizando BufferedReader
+
+Como alternativa ao Scanner você pode utilizar a classe **BufferedReader** para fazer a leitura dos dados digitado no teclado como
+**string** e fazer o parser para o tipo de dados desejado (int, double, etc) com o Wrapper específico.
+
+```java
+public class AplicacaoLeituraDeDados {
+	public static void main(String[] args) throws IOException {
+	
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	
+		System.out.println("Digite um ou mais palavras :");
+		
+		String texto = reader.readLine();
+	
+		System.out.println("Texto digitado: " + texto);
+	
+		System.out.println("Digite um número inteiro: ");
+	
+		texto = reader.readLine();
+	
+		int textoComoInteiro = Integer.parseInt(texto);
+	
+		System.out.println("O número digitado foi: " + textoComoInteiro);
+	
+		System.out.println("Digite um número real: ");
+	
+		texto = reader.readLine();
+	
+		double textoComoReal = Double.parseDouble(texto);
+	
+		System.out.println("O número digitado foi: " + textoComoReal);
+		
+		System.out.println("Digite um boleano (true ou false): ");
+	
+		texto = reader.readLine();
+	
+		boolean textoComoBoleano = Boolean.parseBoolean(texto);
+	
+		System.out.println("O boleano digitado foi: " + textoComoBoleano);
+	}
+}
+```

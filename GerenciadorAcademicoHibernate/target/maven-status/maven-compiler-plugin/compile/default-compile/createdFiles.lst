@@ -1,0 +1,10 @@
+br/com/fuctura/Aplicacao.class
+br/com/fuctura/entidade/Professor.class
+br/com/fuctura/entidade/Curso.class
+br/com/fuctura/dto/AlunoDTO.class
+br/com/fuctura/entidade/Disciplina.class
+br/com/fuctura/entidade/Endereco.class
+br/com/fuctura/AplicacaoRelacionamentos.class
+br/com/fuctura/AplicacaoConsulta.class
+br/com/fuctura/Aplicacao2.class
+br/com/fuctura/entidade/Aluno.class

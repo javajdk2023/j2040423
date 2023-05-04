@@ -14,10 +14,9 @@
 			<property name="javax.persistence.jdbc.user" value="fuctura" />
 			<property name="javax.persistence.jdbc.password" value="123" />
 			<!-- Configurações específicas do Hibernate -->
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>

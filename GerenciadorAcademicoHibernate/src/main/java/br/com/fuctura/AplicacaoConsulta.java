@@ -1,6 +1,5 @@
 package br.com.fuctura;
 
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.fuctura.dto.AlunoDTO;
 import br.com.fuctura.entidade.Aluno;
+import br.com.fuctura.entidade.Professor;
 
 public class AplicacaoConsulta {
 	public static void main(String[] args) {
@@ -19,50 +19,64 @@ public class AplicacaoConsulta {
 
 		EntityManager em = emf.createEntityManager();
 
-		//consultar alunos
+		// consultar alunos
 		TypedQuery<Aluno> resultado = em.createQuery("select a from Aluno a", Aluno.class);
-		
+
 		List<Aluno> alunos = resultado.getResultList();
-		
+
 		for (Aluno aluno : alunos) {
 			System.out.println("Nome: " + aluno.getNome());
 		}
-		
-		//consultar com parâmetro - filtrar por nome 
-		// resultado = em.createQuery("select a from Aluno a where nome like :name", Aluno.class);
+
+		// consultar com parâmetro - filtrar por nome
+		// resultado = em.createQuery("select a from Aluno a where nome like :name",
+		// Aluno.class);
 		TypedQuery<Aluno> resultado2 = em.createQuery("select a from Aluno a where nome like :name and idade = :idade", Aluno.class);
-		
+
 		resultado2.setParameter("name", "maria");
 		resultado2.setParameter("idade", 13);
-		
-		
-		//Consultar nomeada
+
+		// Consultar nomeada
 		TypedQuery<Aluno> resultado3 = em.createNamedQuery("Aluno.findByNomeAndIdade", Aluno.class);
 
 		resultado3.setParameter("name", "maria");
 		resultado3.setParameter("idade", 13);
-		
+
 		List<Aluno> alunos3 = resultado3.getResultList();
-		
+
 		for (Aluno aluno : alunos3) {
 			System.out.println("Nome: " + aluno.getNome());
 		}
-		
-		
+
 		// projecao
-		
 		TypedQuery<AlunoDTO> resultado4 = em.createQuery("select new br.com.fuctura.dto.AlunoDTO(nome, idade) from Aluno a where nome like :name and idade = :idade", AlunoDTO.class);
-		
+
 		resultado4.setParameter("name", "maria");
 		resultado4.setParameter("idade", 50);
-		
+
 		List<AlunoDTO> alunos4 = resultado4.getResultList();
-		
+
 		for (AlunoDTO aluno : alunos4) {
 			System.out.println("Nome: " + aluno.getNome());
 		}
-		
-		
-		// emf.close();
+
+		TypedQuery<Aluno> resultado5 = em.createQuery("select a from Aluno a", Aluno.class);
+
+		List<Aluno> alunos5 = resultado5.getResultList();
+
+		for (Aluno aluno : alunos5) {
+			System.out.println("Nome: " + aluno.getNome());
+		}
+
+		TypedQuery<Professor> resultado6 = em.createQuery("select p from Professor p", Professor.class);
+
+		List<Professor> professor6 = resultado6.getResultList();
+
+		for (Professor professor : professor6) {
+			System.out.println("Nome: " + professor.getNome());
+			System.out.println("Nome da Disciplina: " + professor.getDisciplinas().get(0).getNome());
+		}
+
+		emf.close();
 	}
 }
